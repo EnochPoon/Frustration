@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 /**
- * Write a description of class TheEnd here.
+ * Message when game finished
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
 public class TheEnd extends Actor
 {
@@ -14,7 +14,7 @@ public class TheEnd extends Actor
      */
     public void act() 
     {
-        setImage(new GreenfootImage("The End! You finished the game with "+DeathNumber.death()+". Thanks for playing!\nClick here to return back to the beginning",30,Color.RED,Color.BLUE));
+        setImage(new GreenfootImage("The End! You finished the game with " + DeathNumber.death() + ".\nThanks for playing!\nClick here to return back to the beginning",30,Color.RED,Color.BLUE));
         if(Greenfoot.mouseClicked(this)){
             Greenfoot.setWorld(new Title());
         }

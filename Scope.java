@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Scope here.
+ * Level 8+ obstacle where a scope aims and fires at the player
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
 public class Scope extends Actor
 {
@@ -21,7 +21,6 @@ public class Scope extends Actor
     {
         getImage().scale(length, length);
         if(length!=75){
-            
             length--;
         }else{
             f=true;

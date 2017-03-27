@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class FakeBlock here.
+ * Player can pass through this block. Appears starting at level 2
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
 public class FakeBlock extends Actor
 {

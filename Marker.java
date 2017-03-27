@@ -1,22 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Press to begin game.
+ * RedBullet goes towards their corresponding Marker
  * 
  * @author Enoch Poon
  * 
  */
-public class Begin extends Actor
+public class Marker extends Actor
 {
+    public Marker(){
+        getImage().setTransparency(0);
+    }
+    
     /**
-     * Act - do whatever the Begin wants to do. This method is called whenever
+     * Act - do whatever the Marker wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        if(Greenfoot.mouseClicked(this)==true){
-            Greenfoot.setWorld(new theWorld());
-        }
         
     }    
 }

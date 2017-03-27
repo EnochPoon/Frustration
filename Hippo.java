@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 /**
- * Write a description of class Hippo here.
+ * This is the Player. I first used a Hippo sprite, but I changed it to a person
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
 public class Hippo extends Actor
 {
@@ -73,17 +73,15 @@ public class Hippo extends Actor
                 move(2);
             }
         }
-        if (y()>390){
+        if (getY()>390){
             DeadHippo d=new DeadHippo();
-            getWorld().addObject(d,x(),y());
+            getWorld().addObject(d,getX(),getY());
         }
         if (getOneObjectAtOffset(0,19,Block.class)!=null&&(getOneObjectAtOffset(8,19,Block.class)!=null||getOneObjectAtOffset(-8,19,Block.class)!=null)){
             setLocation(getX(),getY()-1);
         }
-        //if(sideBlock==null&&!(getOneObjectAtOffset(9,20,Block.class)==null||getOneObjectAtOffset(-9,20,Block.class)==null)){
-        //    jump=true;
-        //}
-        laser();
+        
+        death();
     }
 
     public void nextLevel(){
@@ -106,42 +104,27 @@ public class Hippo extends Actor
             
         }
     }   
-    public boolean returnx(){
-        return x;
-    }
-
-    public int returntime(){
-        return timer;
-    }
-
-    public int x(){
-        return getX();
-    }
-
-    public int y(){
-        return getY();
-    }
-    private int g=200;
+    private int g = 200;
     private void scoping(){
         if(getOneObjectAtOffset(0,0,Finish.class)==null&&theWorld.lv()>7){
             g--;
         }
         if(g==0){
-            g=200;
+            g = 200;
             Scope scope=new Scope();
             getWorld().addObject(scope, getX(), getY());
         }
     }
 
-    private void laser(){
-        if(getOneObjectAtOffset(0,0,Finish.class)==null){
-            if(isTouching(HLaser.class)==true){
-                getWorld().addObject(new DeadHippo(),getX(), getY());
-                getWorld().removeObject(this);
-            }else if(getOneObjectAtOffset(0,0,Rocket.class)!=null){
+    private void death(){
+        if(getOneObjectAtOffset(0,0,Finish.class) == null){
+            if(getOneObjectAtOffset(0,0,Rocket.class)!=null){
                 getWorld().addObject(new Explode(),getX(),getY());
                 getWorld().addObject(new DeadHippo(),getX(),getY());
                 getWorld().removeObject(getOneObjectAtOffset(0,0,Rocket.class));
+                getWorld().removeObject(this);
+            }else if(getOneObjectAtOffset(0, 0, Deadly.class) != null){
+                getWorld().addObject(new DeadHippo(), getX(), getY());
                 getWorld().removeObject(this);
             }
         }

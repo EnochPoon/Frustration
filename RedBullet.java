@@ -1,18 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
- * Write a description of class RedBullet here.
+ * Bullet from the RedGun
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
-public class RedBullet extends Actor
+public class RedBullet extends Deadly
 {
-    private int timer=100;
-    private boolean t=true;
-    public RedBullet(int angle){
-        turn(angle);
-        if(theWorld.lv()==4||theWorld.lv()==6){
+    private int timer = 100;
+    private boolean t = true;
+    Marker marker;
+    public RedBullet(Marker marker){
+        this.marker = marker;
+        if(theWorld.lv() == 4||theWorld.lv() == 6){
             getImage().setTransparency(0);
         }
     }
@@ -24,21 +25,22 @@ public class RedBullet extends Actor
     public void act() 
     {
         move(5);
-        Actor x=getOneObjectAtOffset(0,0,Hippo.class);
+        Actor x = getOneObjectAtOffset(0,0,Hippo.class);
+        List<Marker> mlist = getWorld().getObjects(Marker.class);
+        if(mlist.contains(marker)){
+            turnTowards(marker.getX(), marker.getY());
+        }
         if(x!=null){
-            x.getWorld().removeObject(x);
-            DeadHippo deadhippo=new DeadHippo();
-            getWorld().addObject (deadhippo, getX(), getY());
             getImage().setTransparency(255);
         }
-
+        if(intersects(marker)){
+            getWorld().removeObject(marker);
+        }
         outOfBounds();
     }    
 
     public void outOfBounds(){
-        if (getOneObjectAtOffset(0,0,Block.class)!=null){
-            getWorld().removeObject(this);
-        }else if(getOneObjectAtOffset(0,0,FakeBlock.class)!=null&&theWorld.lv()!=1){
+        if(getX() < -5 || getX() > getWorld().getWidth() + 5 || getY() < -5 || getY() > getWorld().getHeight() + 5){
             getWorld().removeObject(this);
         }
     }

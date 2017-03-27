@@ -1,16 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class HLaser here.
+ * A horizontal laser found in level 7 and above
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon 
+ * 
  */
-public class HLaser extends Actor
+public class HLaser extends Deadly
 {
     private int timer=5;
     private int t=100;
-    private boolean x=true;
     /**
      * Act - do whatever the HLaser wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,9 +21,6 @@ public class HLaser extends Actor
             setLocation(getX(),getY()-1);
             timer=5;
         }
-        death();
+        
     }    
-    private void death(){
-       
-    }
 }

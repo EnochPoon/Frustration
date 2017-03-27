@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 /**
- * Write a description of class Titlename here.
+ * FRUSTRATION
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
 public class Titlename extends Actor
 {
@@ -17,6 +17,4 @@ public class Titlename extends Actor
         setImage(new GreenfootImage("FRUSTRATION",100,Color.RED,null));
         
     }    
-    public void act(){
-    }
 }

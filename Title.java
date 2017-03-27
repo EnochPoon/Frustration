@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Title here.
+ * Main Menu World
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon 
+ * 
  */
 public class Title extends World
 {

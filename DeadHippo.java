@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DeadHippo here.
+ * Dead Player
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
 public class DeadHippo extends Actor
 {
@@ -25,20 +25,22 @@ public class DeadHippo extends Actor
         gravity++;
         timer--;
         if(timer==0){
-            Hippo hippo = new Hippo();
-            getWorld().addObject(hippo, 85, 347);
-            DeathNumber.newdeath();
-            if(theWorld.lv()>6){
-                getWorld().removeObjects(getWorld().getObjects(HLaser.class));
-                HLaser h=new HLaser();
-                getWorld().addObject(h, 349,397);
-            }
-            if(theWorld.lv()==10&&getWorld().getObjects(Rocket.class)!=null){
-                getWorld().removeObjects(getWorld().getObjects(Rocket.class));
-            }
-            getWorld().removeObjects(getWorld().getObjects(DeadHippo.class));
+            reset();
         }
 
+    }
+
+    public void reset(){
+        Hippo hippo = new Hippo();
+        getWorld().addObject(hippo, 85, 347);
+        DeathNumber.newdeath();
+        getWorld().removeObjects(getWorld().getObjects(Deadly.class));
+        if(theWorld.lv() > 6){
+            HLaser h=new HLaser();
+            getWorld().addObject(h, 349,397);
+        }
+        getWorld().addObject(new RedGun(), 299, 177);
+        getWorld().removeObject(this);
     }
 }    
 

@@ -2,17 +2,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 
 /**
- * Write a description of class DeathNumber here.
+ * Counts the number of deaths
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
 public class DeathNumber extends Actor
 {
     private static int deaths=0;
     
     public DeathNumber(){
-        deaths=0;
         GreenfootImage x=new GreenfootImage ("Deaths: "+deaths, 30,Color.BLACK,null);
         setImage(x);
     }

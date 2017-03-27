@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
- * Write a description of class RedGun here.
+ * RedGun points towards the Hippo and shoots some RedBullets
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
 public class RedGun extends Actor
 {
@@ -19,38 +19,21 @@ public class RedGun extends Actor
     public void act()
     {       
         timer--;
-
-        if(reversetimer==0){
-            reverse=false;
-
+        List<Hippo> hippo = getWorld().getObjects(Hippo.class);
+        if(hippo.size() > 0){
+            turnTowards(hippo.get(0).getX(), hippo.get(0).getY());
+            if(timer == 0){
+                Marker m = new Marker();
+                getWorld().addObject(m, hippo.get(0).getX(), hippo.get(0).getY());
+                getWorld().addObject(new RedBullet(m), getX(), getY());
+                if(theWorld.lv() >= 3){
+                    timer = 50;
+                }else{
+                    timer = 100;
+                }
+            }
         }
-
-        if(reversetimer==180){
-            reverse=true;
-
-        }
-        if(reverse==false){
-            turn(1);
-            angle++;
-            reversetimer++;
-        }else{
-            turn(-1);
-            angle--;
-            reversetimer--;
-        }
-
-        if (angle%60==0&&theWorld.lv()<3){//timer==0
-            //getWorld().removeObjects(getWorld().getObjects(RedBullet.class));
-            RedBullet bullet=new RedBullet(angle);
-            getWorld().addObject(bullet, getX(), getY());
-            timer=100;
-        }
-        if (angle%45==0&&theWorld.lv()>2){
-            //getWorld().removeObjects(getWorld().getObjects(RedBullet.class));
-            RedBullet bullet=new RedBullet(angle);
-            getWorld().addObject(bullet, getX(), getY());
-            timer=100;
-        }
+            
         if(theWorld.lv()>4){
             moving();
         }

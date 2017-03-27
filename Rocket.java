@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Rocket here.
+ * Level 10 Rockets
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon 
+ * 
  */
-public class Rocket extends Actor
+public class Rocket extends Deadly
 {
     private int x;
     private boolean t=true;

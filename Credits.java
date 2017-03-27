@@ -2,10 +2,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.awt.Color;
 
 /**
- * Write a description of class Credits here.
+ * Credits at menu
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Enoch Poon
+ * 
  */
 public class Credits extends Actor
 {
@@ -15,6 +15,6 @@ public class Credits extends Actor
      */
     public Credits() 
     {
-        setImage(new GreenfootImage("Lead programmer: Enoch Poon \nSkilled programmer who never helped: Tiger Zhao \nSuper noob tester: Aaron Lam", 15,Color.GREEN,null));
+        setImage(new GreenfootImage("Lead programmer: Enoch Poon", 15,Color.GREEN,null));
     }    
 }
